@@ -15,8 +15,9 @@ public:
 		}
 	}
 	Remote(TV* tv)
-		:tv(tv)
-	{}
+	{
+		this->tv = tv;
+	}
 	~Remote() {}
 	Remote() = default;
 	void setNewTV(TV* tv) {
@@ -32,10 +33,11 @@ public:
 	}
 	void goToChannel(const int& channel) {
 		//replace to if
-		for (int i = 0; i != channel; i++)
+		if (channel<=tv->maxChannel && channel>=0)
 		{
-			tv->nextChanenel();
+			this->tv->current_channel = channel;
 		}
+		return;
 	}
 private:
 	TV* tv;

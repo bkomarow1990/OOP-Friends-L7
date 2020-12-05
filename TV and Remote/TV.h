@@ -1,10 +1,8 @@
 #pragma once
 #include <iostream>
-#include "Remote.h"
 using namespace std;
 class TV
-{
-	
+{	
 public:
 	TV(const int&maxCh,const int&maxVolume) 
 		:maxChannel(maxCh),maxVolume(maxVolume)
@@ -18,14 +16,15 @@ public:
 	}
 	void print()const {
 		cout << "Power: " <<state << endl;
-		cout << "Current channel: " << current_channel << endl;
+		cout << "Current Channel: " << current_channel << endl;
+		cout << "Current Volume: " << current_volume << endl;
 		cout << "Max Volume: " << maxVolume << endl;
 		cout << "Max Channel: " << maxChannel << endl;
 	}
 	void nextChanenel() {
 		if (state==true && current_channel+1==maxChannel+1)
 		{
-			current_channel == 0;
+			current_channel = 0;
 		}
 		else if(state==true && current_channel<maxChannel)
 		{
@@ -61,6 +60,5 @@ private:
 	const int maxVolume = 100;
 	const int maxChannel = 100;
 	friend class Remote;
-
 };
 
